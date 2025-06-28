@@ -1,119 +1,311 @@
 {% extends "base.html" %}
-{% import "_macros.html" as m %}
 
 {% block content %}
 
-{{ m.section('hero', '', '') }}
+<!-- HERO SECTION -->
+<section id="hero" class="hero d-flex align-items-center justify-content-center">
   <div class="text-center text-white hero-content" data-aos="fade-up">
     <h1 class="display-4 fw-bold mb-3">SalamaNet AI</h1>
-    <p class="lead mb-4"><span id="typed-text"></span></p>
-    {{ m.btn('#progress','See Our Progress','primary',None,'') }}
+    <p class="lead mb-4">
+    <span id="typed-text"></span>
+    </p>
+
+    <a href="#progress" class="btn btn-primary btn-lg">See Our Progress</a>
   </div>
-{{ m.endsection() }}
+</section>
 
 
-{{ m.section('progress','Project Progress') }}
-  <div class="progress mb-3">
-    <div class="progress-bar progress-bar-striped progress-bar-animated"
-         style="width:75%;">75% Complete</div>
-  </div>
-  <p class="text-center">
-    We have successfully trained our ML model… integrating real-time monitoring.
-  </p>
-{{ m.endsection() }}
-
-
-{{ m.section('challenges','Current Challenges') }}
-  <!-- your accordion markup stays here -->
-{{ m.endsection() }}
-
-
-{{ m.section('timeline','Project Timeline') }}
-  <!-- your <ul class="timeline"> … </ul> here -->
-{{ m.endsection() }}
-
-
-{{ m.section('stats','Project Stats') }}
-  <div class="row text-center">
-    {% for cfg in [
-      {'target':92,'color':'primary','label':'Model Accuracy (%)'},
-      {'target':1200,'color':'success','label':'Threats Detected'},
-      {'target':700,'color':'danger','label':'Phishing Attempts Blocked'}
-    ] %}
-    <div class="col-md-4 mb-4">
-      <h1 class="counter text-{{cfg.color}}" data-target="{{cfg.target}}">0</h1>
-      <p>{{cfg.label}}</p>
+<!-- PROGRESS SECTION -->
+<section id="progress" class="container my-5" data-aos="zoom-in">
+    <h2 class="text-center mb-4">Project Progress</h2>
+    <div class="progress mb-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%;">75% Complete</div>
     </div>
-    {% endfor %}
+    <p class="text-center">
+        We have successfully trained our ML model for phishing and anomaly detection. Currently integrating real-time network monitoring and alerting.
+    </p>
+</section>
+
+<!-- CHALLENGES SECTION -->
+<section id="challenges" class="container my-5" data-aos="fade-up">
+    <h2 class="text-center mb-4">Current Challenges</h2>
+
+    <div class="accordion" id="challengesAccordion">
+        <!-- Challenge 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    <i class="fas fa-money-bill-wave text-danger me-2"></i> Funding Issues
+                    <span class="badge bg-danger ms-2">High</span>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    Need financial support to fine-tune and deploy larger models on Azure cloud platforms.
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    <i class="fas fa-wifi text-warning me-2"></i> Internet Connectivity
+                    <span class="badge bg-warning text-dark ms-2">Medium</span>
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Slow and unstable internet affecting real-time data collection and model retraining.
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    <i class="fas fa-database text-primary me-2"></i> Dataset Access
+                    <span class="badge bg-info text-dark ms-2">Medium</span>
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Limited access to high-quality phishing & anomaly datasets for robust training.
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge 4 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    <i class="fas fa-clock text-secondary me-2"></i> Time Constraints
+                    <span class="badge bg-secondary ms-2">Low</span>
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Balancing academic workload with development, testing, and deployment efforts.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT TIMELINE -->
+<section id="timeline" class="container my-5" data-aos="fade-up">
+  <h2 class="text-center mb-4">Project Timeline</h2>
+
+  <ul class="timeline">
+    <li>
+      <h5>February 2025</h5>
+      <p>SalamaNet AI project idea proposed and team formed during JHUB Africa workshop.</p>
+    </li>
+    <li>
+      <h5>March 2025</h5>
+      <p>Research phase began — exploring phishing detection techniques and network security gaps.</p>
+    </li>
+    <li>
+      <h5>April 2025</h5>
+      <p>Model training and dataset collection using open-source phishing & anomaly datasets.</p>
+    </li>
+    <li>
+      <h5>May 2025</h5>
+      <p>Integration of real-time alerts and early anomaly detection prototype demo.</p>
+    </li>
+    <li>
+      <h5>June 2025</h5>
+      <p>Website showcase developed and Azure cloud deployment planning started.</p>
+    </li>
+    <li>
+      <h5>July 2025</h5>
+      <p>Expected live deployment of SalamaNet AI on institutional network environments.</p>
+    </li>
+  </ul>
+</section>
+
+<!-- PROJECT STATS -->
+<section id="stats" class="container my-5 text-center" data-aos="fade-up">
+  <h2 class="mb-4">Project Stats</h2>
+  <div class="row">
+
+    <div class="col-md-4 mb-4">
+      <h1 class="counter text-primary" data-target="92">0</h1>
+      <p>Model Accuracy (%)</p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <h1 class="counter text-success" data-target="1200">0</h1>
+      <p>Threats Detected</p>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <h1 class="counter text-danger" data-target="700">0</h1>
+      <p>Phishing Attempts Blocked</p>
+    </div>
+
   </div>
-{{ m.endsection() }}
+</section>
 
 
-{{ m.section('downloads','Downloads & Demo','Explore our project resources and journey.') }}
+<!-- DOWNLOADS / TRY DEMO -->
+<section id="downloads" class="container my-5" data-aos="fade-up">
+  <h2 class="text-center mb-4">Downloads & Demo</h2>
+  <p class="text-center mb-4">
+    Explore our project resources and follow our development journey.
+  </p>
+
   <div class="row justify-content-center">
-    {{ m.btn(
-        'https://docs.google.com/document/d/…',
-        'View Project Documents','outline-primary','folder-open','w-75 mb-3') }}
-    {{ m.btn(
-        url_for('static',filename='docs/SalamaNet_Presentation_Slides.pdf'),
-        'Download Presentation','outline-success','file-powerpoint','w-75 mb-3') }}
-    {{ m.btn(
-        'https://github.com/A1-lex/SalamaNet-Al-',
-        'View on GitHub','outline-dark','github','w-75 mb-3') }}
-    {{ m.btn(
-        '#','Live Demo (Soon)','outline-info','laptop-code','w-75 mb-3 disabled') }}
+
+   <!-- View Project Documents -->
+    <div class="col-md-4 text-center mb-3">
+    <a href="https://docs.google.com/document/d/12H7I0smeywQ1Q75nFXhOLr_p4z255SwYKoXOt3pbOXw/edit?usp=sharing" target="_blank" class="btn btn-outline-primary w-75">
+        <i class="fas fa-folder-open me-2"></i> View Project Documents
+    </a>
+    </div>
+
+
+    <!-- Download Presentation -->
+    <div class="col-md-4 text-center mb-3">
+      <a href="{{ url_for('static', filename='docs/SalamaNet_Presentation_Slides.pdf') }}" class="btn btn-outline-success w-75" download>
+        <i class="fas fa-file-powerpoint me-2"></i> Download Presentation
+      </a>
+    </div>
+
+    <!-- GitHub Repo -->
+    <div class="col-md-4 text-center mb-3">
+      <a href="https://github.com/A1-lex/SalamaNet-Al-" target="_blank" class="btn btn-outline-dark w-75">
+        <i class="fab fa-github me-2"></i> View on GitHub
+      </a>
+    </div>
+
+    <!-- Demo Link -->
+    <div class="col-md-4 text-center mb-3">
+      <a href="#" class="btn btn-outline-info w-75 disabled">
+        <i class="fas fa-laptop-code me-2"></i> Live Demo (Coming Soon)
+      </a>
+    </div>
+
   </div>
-{{ m.endsection() }}
+</section>
 
 
-{{ m.section('sponsor','Support & Sponsors',
-    'SalamaNet AI actively seeks funding & institutional support.') }}
-  <div class="text-center my-4">
-    {{ m.btn('#sponsorship','Become a Sponsor','outline-warning','hand-holding-heart','') }}
-  </div>
-  <div class="row justify-content-center align-items-center mt-5">
-    <!-- sponsor logos here -->
-  </div>
-{{ m.endsection() }}
+  <!-- SPONSOR CTA SECTION -->
+<section id="sponsor" class="container my-5 text-center" data-aos="fade-up">
+  <h2 class="mb-4">Support SalamaNet AI</h2>
+  <p class="lead mb-4">
+    Join our mission—help fund hosting, model training, and deployment!
+  </p>
+  <a href="#sponsorship" class="btn btn-outline-warning btn-lg">
+    <i class="fas fa-hand-holding-heart me-2"></i> Become a Sponsor
+  </a>
+</section>
 
 
-{{ m.section('sponsorship','Our Sponsors & Affiliates',
-    'We’re grateful for partners supporting SalamaNet AI’s mission.') }}
-  <div class="row justify-content-center align-items-center mb-4">
-    <!-- JKUAT & JHUB logos -->
-  </div>
-  <div class="text-center mt-4">
-    {{ m.btn(
-        'mailto:alemaina867@gmail.com','Email Us','primary','envelope') }}
-    {{ m.btn(
-        'tel:+254705516200','+254 705 516 200','outline-secondary','phone') }}
-  </div>
-{{ m.endsection() }}
 
+<!-- ABOUT US SECTION -->
+<section id="about" class="container my-5">
+    <h2 class="text-center mb-5">About SalamaNet AI</h2>
 
-{{ m.section('about','About SalamaNet AI') }}
-  <!-- problem & solution rows here -->
-{{ m.endsection() }}
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/problem.gif') }}" class="img-fluid rounded" alt="Problem Image">
+        </div>
+        <div class="col-md-6" data-aos="fade-right">
+            <h4>Problem Statement</h4>
+            <p>
+                Increased cyber threats in public & education institutions due to poor cyber hygiene.<br>
+                Phishing attacks targeting teachers, students, and government officials are becoming rampant.<br>
+                There’s a lack of real-time detection and response in most Kenyan systems.
+            </p>
+        </div>
+    </div>
 
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 order-md-2">
+            <img src="{{ url_for('static', filename='img/solution.gif') }}" class="img-fluid rounded" alt="Solution Image">
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <h4>Our Solution</h4>
+            <p>
+                SalamaNet AI is a network-facing, AI-driven model that detects threats, anomalies, and phishing attacks in real time.<br>
+                Our system uses ML to scan suspicious emails, sites, and attachments, sending instant alerts to administrators and
+                automatically quarantining or blocking potential threats.
+            </p>
+        </div>
+    </div>
+</section>
 
-{{ m.section('team','Meet The Team') }}
+<!-- TEAM SECTION -->
+<section id="team" class="container my-5">
+  <h2 class="text-center mb-4">Meet The Team</h2>
   <div class="row g-4">
-    {% for member in [
-      {'img':'boni.png','name':'Alex','role':'Project Lead & AI Engineer','link':'https://...'},
-      /* etc for each of the 9 */
-    ] %}
-    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="{{ loop.index0*100 }}">
-      <div class="card">
-        <img src="{{ url_for('static','img/'+member.img) }}" class="card-img-top team-img" alt="{{member.name}}">
+    {% for member in team_members %}
+    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+      <div class="card team-card">
+        <img src="{{ url_for('static', filename='img/' ~ member.img) }}"
+             class="card-img-top team-img"
+             alt="{{ member.name }}">
         <div class="card-body">
-          <h5 class="card-title">{{member.name}}</h5>
-          <p class="card-text">{{member.role}}</p>
-          {{ m.btn(member.link,'LinkedIn','outline-primary','linkedin') }}
+          <h5 class="card-title">{{ member.name }}</h5>
+          <p class="card-text">{{ member.role }}</p>
+          <a href="{{ member.link }}" target="_blank" class="btn btn-outline-primary">
+            <i class="fab fa-linkedin me-2"></i>LinkedIn
+          </a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
-{{ m.endsection() }}
+</section>
+
+<!-- SPONSORSHIP SECTION -->
+<section id="sponsorship" class="container my-5" data-aos="fade-up">
+  <h2 class="text-center mb-4">Our Sponsors & Affiliates</h2>
+  <p class="text-center mb-4">
+    We’re grateful for the partners supporting SalamaNet AI’s mission.
+  </p>
+
+  <div class="row justify-content-center align-items-center mb-4">
+    <!-- JKUAT -->
+    <div class="col-6 col-md-3 text-center mb-3">
+      <a href="https://www.jkuat.ac.ke" target="_blank">
+        <img src="{{ url_for('static', filename='img/jkuat.svg') }}" class="img-fluid sponsor-logo" alt="JKUAT">
+      </a>
+    </div>
+    <!-- JHUB AFRICA -->
+    <div class="col-6 col-md-3 text-center mb-3">
+      <a href="https://jhubafrica.org" target="_blank">
+        <img src="{{ url_for('static', filename='img/jhub.svg') }}" class="img-fluid sponsor-logo" alt="JHUB Africa">
+      </a>
+    </div>
+  </div>
+
+  <!-- Sponsor Perks List -->
+  <ul class="list-unstyled text-center mb-4">
+    <li class="mb-2">
+      <i class="fas fa-star text-warning me-2"></i>Your logo featured on our site & events
+    </li>
+    <li class="mb-2">
+      <i class="fas fa-star text-warning me-2"></i>Exclusive early access to demos & updates
+    </li>
+    <li class="mb-2">
+      <i class="fas fa-star text-warning me-2"></i>Priority partnership and co-branding opportunities
+    </li>
+  </ul>
+
+  <p class="text-center text-muted small">
+    Interested in partnering with us? New sponsors will have their logos proudly displayed here and on our official channels.
+  </p>
+
+  <div class="text-center mt-4">
+    <a href="mailto:alemaina867@gmail.com" class="btn btn-primary btn-lg me-3">
+      <i class="fas fa-envelope me-2"></i> Email Us
+    </a>
+    <a href="tel:+254705516200" class="btn btn-outline-secondary btn-lg">
+      <i class="fas fa-phone me-2"></i> +254 705 516 200
+    </a>
+  </div>
+</section>
 
 {% endblock %}
