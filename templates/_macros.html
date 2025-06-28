@@ -1,0 +1,19 @@
+{% macro section(id, title, subtitle=None) -%}
+<section id="{{ id }}" class="container my-5" data-aos="fade-up">
+  <h2 class="text-center mb-4">{{ title }}</h2>
+  {% if subtitle %}
+  <p class="text-center mb-4">{{ subtitle }}</p>
+  {% endif %}
+{%- endmacro %}
+
+{% macro endsection() -%}
+</section>
+{%- endmacro %}
+
+{% macro btn(href, text, style='primary', icon=None, extra_classes='') -%}
+<a href="{{ href }}"
+   class="btn btn-{{ style }} btn-lg {{ extra_classes }} me-3"
+   {% if href.startswith('mailto:') or href.startswith('tel:') %}{% else %}target="_blank"{% endif %}>
+  {% if icon %}<i class="fas fa-{{ icon }} me-2"></i>{% endif %}{{ text }}
+</a>
+{%- endmacro %}

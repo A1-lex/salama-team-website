@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+
+{% block content %}
+
+{{ m.section('hero', '', '') }}
+  <div class="text-center text-white hero-content" data-aos="fade-up">
+    <h1 class="display-4 fw-bold mb-3">SalamaNet AI</h1>
+    <p class="lead mb-4"><span id="typed-text"></span></p>
+    {{ m.btn('#progress','See Our Progress','primary',None,'') }}
+  </div>
+{{ m.endsection() }}
+
+
+{{ m.section('progress','Project Progress') }}
+  <div class="progress mb-3">
+    <div class="progress-bar progress-bar-striped progress-bar-animated"
+         style="width:75%;">75% Complete</div>
+  </div>
+  <p class="text-center">
+    We have successfully trained our ML model… integrating real-time monitoring.
+  </p>
+{{ m.endsection() }}
+
+
+{{ m.section('challenges','Current Challenges') }}
+  <!-- your accordion markup stays here -->
+{{ m.endsection() }}
+
+
+{{ m.section('timeline','Project Timeline') }}
+  <!-- your <ul class="timeline"> … </ul> here -->
+{{ m.endsection() }}
+
+
+{{ m.section('stats','Project Stats') }}
+  <div class="row text-center">
+    {% for cfg in [
+      {'target':92,'color':'primary','label':'Model Accuracy (%)'},
+      {'target':1200,'color':'success','label':'Threats Detected'},
+      {'target':700,'color':'danger','label':'Phishing Attempts Blocked'}
+    ] %}
+    <div class="col-md-4 mb-4">
+      <h1 class="counter text-{{cfg.color}}" data-target="{{cfg.target}}">0</h1>
+      <p>{{cfg.label}}</p>
+    </div>
+    {% endfor %}
+  </div>
+{{ m.endsection() }}
+
+
+{{ m.section('downloads','Downloads & Demo','Explore our project resources and journey.') }}
+  <div class="row justify-content-center">
+    {{ m.btn(
+        'https://docs.google.com/document/d/…',
+        'View Project Documents','outline-primary','folder-open','w-75 mb-3') }}
+    {{ m.btn(
+        url_for('static',filename='docs/SalamaNet_Presentation_Slides.pdf'),
+        'Download Presentation','outline-success','file-powerpoint','w-75 mb-3') }}
+    {{ m.btn(
+        'https://github.com/A1-lex/SalamaNet-Al-',
+        'View on GitHub','outline-dark','github','w-75 mb-3') }}
+    {{ m.btn(
+        '#','Live Demo (Soon)','outline-info','laptop-code','w-75 mb-3 disabled') }}
+  </div>
+{{ m.endsection() }}
+
+
+{{ m.section('sponsor','Support & Sponsors',
+    'SalamaNet AI actively seeks funding & institutional support.') }}
+  <div class="text-center my-4">
+    {{ m.btn('#sponsorship','Become a Sponsor','outline-warning','hand-holding-heart','') }}
+  </div>
+  <div class="row justify-content-center align-items-center mt-5">
+    <!-- sponsor logos here -->
+  </div>
+{{ m.endsection() }}
+
+
+{{ m.section('sponsorship','Our Sponsors & Affiliates',
+    'We’re grateful for partners supporting SalamaNet AI’s mission.') }}
+  <div class="row justify-content-center align-items-center mb-4">
+    <!-- JKUAT & JHUB logos -->
+  </div>
+  <div class="text-center mt-4">
+    {{ m.btn(
+        'mailto:alemaina867@gmail.com','Email Us','primary','envelope') }}
+    {{ m.btn(
+        'tel:+254705516200','+254 705 516 200','outline-secondary','phone') }}
+  </div>
+{{ m.endsection() }}
+
+
+{{ m.section('about','About SalamaNet AI') }}
+  <!-- problem & solution rows here -->
+{{ m.endsection() }}
+
+
+{{ m.section('team','Meet The Team') }}
+  <div class="row g-4">
+    {% for member in [
+      {'img':'boni.png','name':'Alex','role':'Project Lead & AI Engineer','link':'https://...'},
+      /* etc for each of the 9 */
+    ] %}
+    <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="{{ loop.index0*100 }}">
+      <div class="card">
+        <img src="{{ url_for('static','img/'+member.img) }}" class="card-img-top team-img" alt="{{member.name}}">
+        <div class="card-body">
+          <h5 class="card-title">{{member.name}}</h5>
+          <p class="card-text">{{member.role}}</p>
+          {{ m.btn(member.link,'LinkedIn','outline-primary','linkedin') }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{{ m.endsection() }}
+
+{% endblock %}
