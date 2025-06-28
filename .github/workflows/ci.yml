@@ -1,36 +1,32 @@
-name: CI Workflow
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main  # or your active branch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: 🛎️ Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: 🐍 Set up Python
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.11'
 
-    - name: 📦 Install dependencies
+    - name: Install dependencies
       run: |
         python -m venv venv
         source venv/bin/activate
         pip install -r requirements.txt
 
-    - name: 🧪 Check syntax (flake8)
+    - name: Run Tests
       run: |
         source venv/bin/activate
-        pip install flake8
-        flake8 . --count --max-line-length=120 --statistics || true
+        pytest
 
-    - name: ✅ Workflow finished
-      run: echo "✔️ Code check completed"
+    - name: Deploy
+      run: echo "Deploy steps go here"
