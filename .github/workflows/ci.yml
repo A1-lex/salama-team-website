@@ -1,16 +1,18 @@
-name: CI/CD Pipeline
+name: Python CI
 
 on:
   push:
-    branches:
-      - main  # or your active branch
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -19,14 +21,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
+        pip install --upgrade pip
         pip install -r requirements.txt
+        pip install pytest
 
     - name: Run Tests
-      run: |
-        source venv/bin/activate
-        pytest
-
-    - name: Deploy
-      run: echo "Deploy steps go here"
+      run: pytest
