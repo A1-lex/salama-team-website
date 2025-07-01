@@ -4,16 +4,17 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     team_members = [
-        {'img':'boni.png',    'name':'Alex Muriithi',  'role':'Project Lead & AI Engineer',      'link':'https://linkedin.com/in/alexmuriithi'},
-        {'img':'boni.png',    'name':'Faith Njeri',    'role':'Network Security Specialist',     'link':'https://linkedin.com/in/faithnjeri'},
-        {'img':'brian.png',   'name':'Brian Otieno',   'role':'Backend & Deployment Engineer',   'link':'https://linkedin.com/in/brianotieno'},
-        {'img':'boniface.png','name':'Boniface',       'role':'Security Analyst',                'link':'https://linkedin.com/in/boniface'},
-        {'img':'emanuel.png', 'name':'Emanuel',        'role':'Data Scientist & Model Trainer',  'link':'https://linkedin.com/in/emanuel'},
-        {'img':'robert.png',  'name':'Robert',         'role':'Mentor & Project Guide',          'link':'https://linkedin.com/in/robert'},
-        {'img':'john.png',    'name':'John',           'role':'UI/UX Designer',                  'link':'https://linkedin.com/in/john'},
-        {'img':'kelvin.png',  'name':'Kelvin',         'role':'Network Security Analyst',        'link':'https://linkedin.com/in/kelvin'},
-        {'img':'nderu.png',   'name':'Dr. Nderu',      'role':'Supervising Director',            'link':'https://linkedin.com/in/drnderu'},
-    ]
+    {'img':'boni.png',    'name':'Dr. Nderu',       'role':'Supervising Director',            'link':'https://linkedin.com/in/drnderu'},
+    {'img':'boni.png',    'name':'Mr.Robert',       'role':'Mentor & AI Specialist',          'link':'https://linkedin.com/in/faithnjeri'},
+    {'img':'Mnisaa.jpg',  'name':'John Gitau',      'role':'UI/UX Designer',                  'link':'https://linkedin.com/in/brianotieno'},
+    {'img':'boni.jpg',    'name':'Boniface Manda',  'role':'Security Analyst',                'link':'https://linkedin.com/in/boniface'},
+    {'img':'emanuel.png', 'name':'Ruth Khalayi',    'role':'Data Scientist',                  'link':'https://linkedin.com/in/emanuel'},
+    {'img':'manu.jpg',    'name':'Emanuel Mudasia', 'role':'Network Security Engineer',       'link':'https://linkedin.com/in/robert'},
+    {'img':'joshua.jpg',  'name':'Joshua Mativo',   'role':'Model Trainer',                   'link':'https://linkedin.com/in/john'},
+    {'img':'a1-lex.jpg',  'name':'Alex Maina',      'role':'Full-stack Developer',            'link':'https://linkedin.com/in/kelvin'},
+    {'img':'mato.jpg',    'name':'Martin',          'role':'Research & Documentation Lead',   'link':'https://linkedin.com/in/drnderu'},
+]
+
     return render_template('index.html', team_members=team_members)
 
 if __name__ == '__main__':
