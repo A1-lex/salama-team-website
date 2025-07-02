@@ -31,7 +31,6 @@ coverage.xml
 docker-compose.override.yml
 docker-compose*.yml
 docker-compose.yml
-Dockerfile
 .dockerignore
 
 # Ignore Docker image tarballs
