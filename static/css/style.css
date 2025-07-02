@@ -56,6 +56,7 @@ body.dark-mode .navbar-brand span {
   overflow: hidden;
 }
 
+/* Slideshow background overlay */
 .hero::before {
   content: '';
   position: absolute;
@@ -65,6 +66,7 @@ body.dark-mode .navbar-brand span {
   z-index: 1;
 }
 
+/* Slideshow images */
 .hero-slideshow {
   position: absolute;
   top: 0; left: 0;
@@ -75,18 +77,20 @@ body.dark-mode .navbar-brand span {
   animation: slideshow 15s infinite ease-in-out;
 }
 
+/* Slideshow keyframes */
 @keyframes slideshow {
   0%, 33% {
-    background-image: url('../img/hero1.png');
+    background-image: url('../img/hero.png');
   }
   34%, 66% {
-    background-image: url('../img/hero2.png');
+    background-image: url('../img/team.jpg');
   }
   67%, 100% {
-    background-image: url('../img/hero3.png');
+    background-image: url('../img/team1.jpg');
   }
 }
 
+/* Hero content styles */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -101,6 +105,7 @@ body.dark-mode .navbar-brand span {
   animation: fadeInUp 2s ease;
 }
 
+/* Animations */
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-40px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -111,6 +116,7 @@ body.dark-mode .navbar-brand span {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Hero button */
 .hero .btn-primary {
   transition: 0.3s;
 }
@@ -120,6 +126,7 @@ body.dark-mode .navbar-brand span {
   border-color: #0a58ca;
 }
 
+/* Typed.js cursor color */
 .typed-cursor {
   font-size: 1.2rem;
   color: #fff;
