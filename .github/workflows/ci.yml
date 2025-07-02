@@ -1,86 +1,52 @@
-name: Python CI
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - production
+
+  # schedule:
+  #   - cron: '0 0 0 * *' # Uncomment to schedule the workflow
+
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - production
+    types:
+      - closed
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
-    - name: Install dependencies
-      run: |
-        pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pytest
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Run Tests
-      run: pytest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:${{ github.sha }}, ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}:latest
 
-# Uncomment the following section to enable Docker build and push to Docker Hub
-#-------------------------------------------------- |
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-# name: CI & Docker Build
+      - name: Deploy to production server
+        run:
+          ssh ${{ secrets.SERVER_BOT }}@${{ secrets.SERVER_IP }} "~/deploy.sh"
 
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
-
-# jobs:
-#   test:
-#     name: 🧪 Run Python Tests
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Set up Python
-#         uses: actions/setup-python@v5
-#         with:
-#           python-version: '3.11'
-
-#       - name: Install dependencies
-#         run: |
-#           pip install --upgrade pip
-#           pip install -r requirements.txt
-#           pip install pytest
-
-#       - name: Run pytest
-#         run: pytest
-
-#   docker:
-#     name: 🐋 Build & Push Docker Image
-#     needs: test
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Log in to Docker Hub
-#         uses: docker/login-action@v2
-#         with:
-#           registry: docker.io
-#           username: ${{ secrets.DOCKERHUB_USERNAME }}
-#           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-#       - name: Build Docker image
-#         run: |
-#           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/salamanet-showcase:${{ github.sha }} .
-#           docker tag ${{ secrets.DOCKERHUB_USERNAME }}/salamanet-showcase:${{ github.sha }} \
-#                      ${{ secrets.DOCKERHUB_USERNAME }}/salamanet-showcase:latest
-
-#       - name: Push to Docker Hub
-#         run: |
-#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/salamanet-showcase:${{ github.sha }}
-#           docker push ${{ secrets.DOCKERHUB_USERNAME }}/salamanet-showcase:latest
+# Uncomment the following section to enable Docker build and push to Docker Hu
