@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+venv/
+ENV/
+env/
+
+# Virtual environment folder
+.venv/
+
+# VS Code
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+coverage.xml
+*.cover
+
+# Docker
+*.pid
+*.log
+*.sock
+docker-compose.override.yml
+docker-compose*.yml
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# Ignore Docker image tarballs
+*.tar
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if applicable in static assets)
+node_modules/
+
+# Static asset caches (if any)
+staticfiles/
+build/
+dist/
+
+# IDE files
+.idea/
+*.iml
