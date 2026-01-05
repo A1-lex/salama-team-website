@@ -23,7 +23,73 @@
 <section id="progress" class="container my-5" data-aos="zoom-in">
     <h2 class="text-center mb-4">Project Progress</h2>
     <div class="progress mb-3">
-        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 3%;">3% Complete</div>
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%;">75% Complete</div>
+    </div>
+    <p class="text-center">
+        We have successfully trained our ML model for phishing and anomaly detection. Currently integrating real-time network monitoring and alerting.
+    </p>
+</section>
+
+<!-- CHALLENGES SECTION -->
+<section id="challenges" class="container my-5" data-aos="fade-up">
+    <h2 class="text-center mb-4">Current Challenges</h2>
+
+    <div class="accordion" id="challengesAccordion">
+        <!-- Challenge 1 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                    <i class="fas fa-money-bill-wave text-danger me-2"></i> Funding Issues
+                    <span class="badge bg-danger ms-2">High</span>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show">
+                <div class="accordion-body">
+                    Need financial support to fine-tune and deploy larger models on Azure cloud platforms.
+                </div>
+            </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    <i class="fas fa-wifi text-warning me-2"></i> Internet Connectivity
+                    <span class="badge bg-warning text-dark ms-2">Medium</span>
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Slow and unstable internet affecting real-time data collection and model retraining.
+                </div>
+            </div>
+        </div>
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section id="hero" class="hero d-flex align-items-center justify-content-center">
+  
+  <!-- Background slideshow -->
+  <div class="hero-slideshow"></div>
+
+  <div class="text-center text-white hero-content" data-aos="fade-up">
+    <h1 class="display-4 fw-bold mb-3">SalamaNet AI</h1>
+    <p class="lead mb-4">
+      <span id="typed-text"></span>
+    </p>
+    <a href="#progress" class="btn btn-primary btn-lg">See Our Progress</a>
+  </div>
+  
+</section>
+
+
+<!-- PROGRESS SECTION -->
+<section id="progress" class="container my-5" data-aos="zoom-in">
+    <h2 class="text-center mb-4">Project Progress</h2>
+    <div class="progress mb-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 75%;">75% Complete</div>
     </div>
     <p class="text-center">
         We have successfully trained our ML model for phishing and anomaly detection. Currently integrating real-time network monitoring and alerting.
@@ -263,7 +329,6 @@
   </div>
 </section>
 
-<!-- SPONSORSHIP SECTION -->
 <section id="sponsorship" class="container my-5" data-aos="fade-up">
   <h2 class="text-center mb-4">Our Sponsors & Affiliates</h2>
   <p class="text-center mb-4">
@@ -274,13 +339,13 @@
     <!-- JKUAT -->
     <div class="col-6 col-md-3 text-center mb-3">
       <a href="https://www.jkuat.ac.ke" target="_blank">
-        <img src="{{ url_for('static', filename='img/jkuat-logo.png') }}" class="img-fluid sponsor-logo" alt="JKUAT">
+        <img src="{{ url_for('static', filename='img/jkuat.svg') }}" class="img-fluid sponsor-logo" alt="JKUAT">
       </a>
     </div>
     <!-- JHUB AFRICA -->
     <div class="col-6 col-md-3 text-center mb-3">
       <a href="https://jhubafrica.org" target="_blank">
-        <img src="{{ url_for('static', filename='img/jhub-logo.png') }}" class="img-fluid sponsor-logo" alt="JHUB Africa">
+        <img src="{{ url_for('static', filename='img/jhub.svg') }}" class="img-fluid sponsor-logo" alt="JHUB Africa">
       </a>
     </div>
   </div>
@@ -307,7 +372,7 @@
       <i class="fas fa-envelope me-2"></i> Email Us
     </a>
     <a href="tel:+254705516200" class="btn btn-outline-secondary btn-lg">
-      <i class="fas fa-phone me-2"></i> +254 705 516 200
+      <i class="fas fa-phone me-2"></i> +254 705 516 200
     </a>
   </div>
 </section>
